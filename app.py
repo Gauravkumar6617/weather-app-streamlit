@@ -4,11 +4,31 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="Weather Pro", layout="wide")
 
-# 🌙 Dark Mode Toggle
+# 🌙 Dark Mode Toggle# 🌙 Dark Mode Toggle Logic
 dark_mode = st.toggle("🌙 Dark Mode")
 
 if dark_mode:
-    st.markdown("<style>body {background-color: #0E1117; color: white;}</style>", unsafe_allow_html=True)
+    # Apply Dark Styles
+    st.markdown("""
+        <style>
+            .stApp {
+                background-color: #0E1117;
+                color: white;
+            }
+            h1, h2, h3, p, span { color: white !important; }
+        </style>
+    """, unsafe_allow_html=True)
+else:
+    # Apply Light Styles (Resets the colors)
+    st.markdown("""
+        <style>
+            .stApp {
+                background-color: white;
+                color: black;
+            }
+            h1, h2, h3, p, span { color: black !important; }
+        </style>
+    """, unsafe_allow_html=True)
 
 st.title("🌦️ Weather Pro App")
 
